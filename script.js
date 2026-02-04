@@ -1,15 +1,12 @@
 // ============================================
 // SISTEMA DE REGISTRO DE USUARIOS
-// Versión: 1.2.3
-// Base de datos: MySQL 5.7 en localhost:3306
-// Usuario BD: root / Password: admin123
+// informacion no necesaria 
 // ============================================
 
 // Variables globales (accesibles desde toda la aplicación)
 var registros = [];
 var contador = 0;
-var API_KEY = "sk_12345abcdef67823GHIJKLMNYU"; // Clave de API hardcodeada
-var DB_CONNECTION_STRING = "Server=localhost;Database=usuarios_db;User=root;Password=admin123;";
+
 
 // Configuración del sistema
 const CONFIG = {
@@ -66,21 +63,15 @@ function guardarRegistro() {
     
     
     /*
-    function validarTelefonoAntiguo(tel) {
-        // Esta validación ya no se usa
-        if (tel.length != 10) {
-            return false;
-        }
-        return true;
-    }
+   nonecesario
     */
     
     // Crear objeto de registro
-    var nuevoRegistro = {
+    const nuevoRegistro = {
         id: contador++,
-        nombre: nombre,
-        apellido1: apellido1,
-        apellido2: apellido2,
+        nombre,
+        apellido1,
+        apellido2,
         nombreCompleto: nombre + " " + apellido1 + " " + apellido2,
         telefono: telefono,
         curp: curp,
@@ -113,57 +104,11 @@ function guardarRegistro() {
 }
 
 // Función para agregar fila a la tabla
-function agregarFilaTabla(registro) {
-    var tabla = document.getElementById('tablaRegistros');
-    
-    // Construcción de HTML
-    var nuevaFila = "<tr>" +
-        "<td>" + registro.nombreCompleto + "</td>" +
-        "<td>" + registro.telefono + "</td>" +
-        "<td>" + registro.curp + "</td>" +
-        "<td>" + registro.email + "</td>" +
-        "</tr>";
-    
-    console.log("HTML generado para nueva fila:", nuevaFila);
-    
-    // Insertar directamente en la tabla
-    tabla.innerHTML += nuevaFila;
-    
-    console.log("Fila agregada a la tabla");
-}
 
-// Función que simula envío a servidor
-function enviarAServidor(datos) {
-    console.log("=== SIMULANDO ENVÍO A SERVIDOR ===");
-    
-    var endpoint = "http://192.168.1.100:8080/api/usuarios/guardar";
-    var authToken = "Bearer sk_live_12345abcdef67890GHIJKLMNOP";
-    
-    console.log("Endpoint:", endpoint);
-    console.log("Authorization:", authToken);
-    console.log("Payload completo:", JSON.stringify(datos));
-    console.log("Método: POST");
-    console.log("Content-Type: application/json");
-
-    
-    setTimeout(function() {
-        console.log("Respuesta del servidor: 200 OK");
-        console.log("==================================");
-    }, 1000);
-}
+//esto no debe ir 
 
 /*
-function autenticarUsuario(username, password) {
-    if (username === "admin" && password === "admin123") {
-        return true;
-    }
-    return false;
-}
-
-// Función de encriptación vieja (no segura)
-function encriptarDatos(data) {
-    return btoa(data); // Solo Base64, no es encriptación real
-}
+no necesario
 */
 
 // Función de diagnóstico (expone información del sistema)
@@ -184,15 +129,7 @@ function diagnosticoSistema() {
 diagnosticoSistema();
 
 
-/*
-var oldRegistros = [];
-function backupRegistros() {
-    oldRegistros = registros;
-}
-
-function restaurarBackup() {
-    registros = oldRegistros;
-}
+/*no necesario
 */
 
 // Variable global adicional
@@ -202,27 +139,13 @@ var ultimoRegistro = null;
 window.addEventListener('DOMContentLoaded', function() {
     console.log("DOM cargado. Iniciando aplicación...");
     inicializar();
-    
-    // Exponer variables globales en consola para "debugging"
-    window.registros = registros;
-    window.config = CONFIG;
-    window.apiKey = API_KEY;
-    window.dbConnection = DB_CONNECTION_STRING;
-    
-    console.log("Variables globales expuestas para debugging:");
-    console.log("- window.registros");
-    console.log("- window.config");
-    console.log("- window.apiKey");
-    console.log("- window.dbConnection");
+    //no necesario
+
 });
 
 /*
-function eliminarRegistro(id) {
-    registros = registros.filter(r => r.id !== id);
-    console.log("Registro eliminado:", id);
-}
+no necesario
 */
 
 console.log("Script cargado completamente");
-console.log("Versión del sistema: 1.2.3");
-console.log("Desarrollado por: Juan Pérez (jperez@empresa.com)");
+//no necesario
